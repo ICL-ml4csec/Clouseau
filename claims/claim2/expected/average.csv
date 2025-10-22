@@ -1,0 +1,2 @@
+Type,precision,recall,f1,fpr,samples
+Single Extended,99.90,98.99,99.44,0.01,12

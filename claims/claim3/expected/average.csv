@@ -1,0 +1,2 @@
+Type,precision,recall,f1,fpr,samples
+Single Sensitivity,99.67,99.47,99.57,0.02,12
