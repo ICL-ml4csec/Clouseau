@@ -1,63 +1,25 @@
-# Clouseau: Hierarchical Multi-Agent Attack Investigation System
+# Project Summary
 
-Clouseau is a hierarchical multi-agent system for iterative cyber attack investigation. Starting from a point of interest (e.g., a suspicious domain), it autonomously explores incident data sources, issues targeted queries, analyzes evidence, and incrementally reconstructs an attack narrative. Clouseau does not require any training or predefined heuristics; instead, it leverages LLMs' understanding of systems and security and their capabilities to correlate and reason about the incident data.
+Clouseau automates attack investigation using LLMs with a hierarchical multi-agent approach. Starting from a single attack clue and environmental context, it plans the investigation, asks targeted questions, executes SQL queries on the provided scenario dataset, and produces a clear incident report—reducing manual triage while keeping optional human-in-the-loop control.
 
-## Repository High-Level Structure
+# How to use
 
-- `artifact` — source code for Clouseau, including prompts and processed scenarios for testing.
-- `claims` — instructions and scripts to reproduce paper's main claims.
-
-## Installation
-
-Create a virtual environment first with conda or any other alternatives. We tested this with Python 3.12.11.
+Run the CLI and provide an attack clue when prompted; by default it reads `scenarios/scenario.db` and `scenarios/scenarios_context.json`, then writes the report to `scenarios/report.md`. You can override paths and limits with flags such as `--data-source`, `--context-file`, `--report-file`, `--max-investigations`, `--max-questions`, `--max-queries`, and toggle `--interactive` or `--quiet`.
 
 ```bash
-pip install -r artifact/requirements.txt
+python app.py --data-source scenarios/scenario.db --context-file scenarios/scenarios_context.json --report-file scenarios/report.md
 ```
 
-## Reproduction Notes
-You will need an OpenAI key to reproduce the results, please set `API_KEY` properly before running any script.
+# ToDo
 
-### Claim 1: Single Host Scenarios
-A run of clouseau to reproduce results for Single Host scenarios (Section 6.1). Run:
-
-```bash
-./claims/claim1/run.sh
-```
-
-Then inspect `claims/claim1/average.csv`, recall, precision and f1 should above 95%.
+ToDo:
+- [ ] Human In The Loop: CTL-C to step into investigation and give instructions to the agent.
+- [ ] Interactive mode: chatbot replacing Closueau agent. if asked to stop, the agent will stop and print the final report.
+- [ ] Investigator agent access to timeline for better contextualization.
+- [ ] Support for reasoning and thinking models.
+- [ ] Integerations with other types of data sources.
+- [ ] More complex scenarios.
 
 
-### Claim 2: Single Host Extended Scenarios
-A run of clouseau to reproduce results for Single Host Extended scenarios (Section 6.1). Run:
-
-```bash
-./claims/claim2/run.sh
-```
-
-Then inspect `claims/claim2/average.csv`, recall, precision and f1 should above 95%.
 
 
-### Claim 3: Keyword Sensitivity Scenarios
-A run of clouseau to reproduce results for Keyword Sensitivity scenarios (Section 6.2). Run:
-
-```bash
-./claims/claim3/run.sh
-```
-
-Then inspect `claims/claim3/average.csv`, recall, precision and f1 should above 95%.
-
-### Other Experiments and Claims
-Want to go beyond the paper claims? Use the CLI to explore, tweak, and run targeted experiments:
-
-```bash
-cd artifact
-python app.py --help
-```
-
-This shows how to:
-- switch the underlying LLM model.
-- enable single‑agent mode.
-- evaluate on OpTC datasets.
-
-To run single exeperiments, you can utilize the notebook `artifact/clouseau.ipynb`.
