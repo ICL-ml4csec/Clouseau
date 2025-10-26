@@ -10,6 +10,13 @@ Run the CLI and provide an attack clue when prompted; by default it reads `scena
 python app.py --data-source scenarios/scenario.db --context-file scenarios/scenarios_context.json --report-file scenarios/report.md
 ```
 
+# Demo
+
+<video controls width="720" src="demo/demo.mp4">
+	Your browser does not support the video tag. You can download the demo here: [demo/demo.mp4](demo/demo.mp4)
+</video>
+
+
 # ToDo
 
 ToDo:
