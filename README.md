@@ -1,6 +1,7 @@
 # Clouseau: Hierarchical Multi-Agent Attack Investigation System
 
-Clouseau is a hierarchical multi-agent system for iterative cyber attack investigation. Starting from a point of interest (e.g., a suspicious domain), it autonomously explores incident data sources, issues targeted queries, analyzes evidence, and incrementally reconstructs an attack narrative. Clouseau does not require any training or predefined heuristics; instead, it leverages LLMs' understanding of systems and security and their capabilities to correlate and reason about the incident data.
+Clouseau is a hierarchical multi-agent system for iterative cyber attack investigation. Starting from a point of interest (e.g., a suspicious domain), it autonomously explores incident data sources, issues targeted queries, analyzes evidence, and incrementally reconstructs an attack narrative. Clouseau operates without training or predefined heuristics, instead leveraging LLMs' inherent understanding of systems and security to correlate and reason about incident data. [Read the paper here](https://www.doc.ic.ac.uk/~maffeis/papers/acsac25.pdf).
+
 
 ## Repository High-Level Structure
 
